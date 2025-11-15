@@ -1,4 +1,5 @@
-export default function CalculateWinnert(squarest) {
+export default function CalculateWinnert(squares?: (string | null)[]) {
+  if (!squares) return null; // <-- Prevent crash
   const Winlines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -11,12 +12,8 @@ export default function CalculateWinnert(squarest) {
   ];
   for (let i = 0; i < Winlines.length; i++) {
     let [a, b, c] = Winlines[i];
-    if (
-      squarest[a] &&
-      squarest[a] === squarest[b] &&
-      squarest[a] === squarest[c]
-    ) {
-      return squarest[a];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
     }
   }
   return null;

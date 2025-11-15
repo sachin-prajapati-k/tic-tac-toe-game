@@ -1,12 +1,12 @@
 import "./App.css";
-import Game from "./components/game/Square_Buttons";
+// import Game from "./components/game/Square_Buttons";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Boardt from "./components/with-typescript/Board";
+import Gamet from "./components/with-typescript/Gamet";
 function App() {
   return (
     <div className="App">
       {/* <Game /> */}
-      <Boardt />
+      <Gamet />
     </div>
   );
 }
