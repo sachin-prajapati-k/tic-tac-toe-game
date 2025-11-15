@@ -5,13 +5,24 @@ type BoardtType = {
   value: string;
   handleClick: () => void;
   i: string | number;
+  status: string;
 };
 
 export default function Boardt(): BoardtType {
-  const [value, setValue] = useState([Array(9).fill(null)]);
+  const [value, setValue] = useState(Array(9).fill(null));
   const [xisNext, setXisNext] = useState(true);
+  const winner = CalculateWinnert(value);
+  let status: string;
+  if (winner) {
+    status = "winner " + winner;
+  } else {
+    status = "next is " + (xisNext ? "X" : "O");
+  }
   const handleClick = (i: number) => {
     const nextSquare = value.slice();
+    if (winner || value[i]) {
+      return;
+    }
     if (xisNext) {
       nextSquare[i] = "X";
       setXisNext(false);
@@ -21,12 +32,14 @@ export default function Boardt(): BoardtType {
     }
 
     setValue(nextSquare);
-    CalculateWinnert(nextSquare);
   };
 
   return (
     <>
       <div className="m-3">
+        <div>
+          <h5>{status}</h5>
+        </div>
         <div>
           <Squaret value={value[0]} onSquareClick={() => handleClick(0)} />
           <Squaret value={value[1]} onSquareClick={() => handleClick(1)} />

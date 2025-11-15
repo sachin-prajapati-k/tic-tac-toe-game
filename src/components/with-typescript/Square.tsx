@@ -8,7 +8,7 @@ export default function Squaret({ value, onSquareClick }: SquaretType) {
     <>
       <button
         className="btn btn-primary border-dark rounded-0"
-        style={{ height: "40px", widht: "40px" }}
+        style={{ height: "40px", width: "40px" }}
         onClick={onSquareClick}
       >
         {value}

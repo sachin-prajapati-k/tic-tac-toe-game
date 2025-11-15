@@ -62,7 +62,7 @@ function Board({ xisNext, squares, onPlay }) {
   );
 }
 
-function CalculateWinner(squares, Status) {
+function CalculateWinner(squares) {
   const WinLines = [
     [0, 1, 2],
     [3, 4, 5],

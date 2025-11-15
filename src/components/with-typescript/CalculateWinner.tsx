@@ -1,4 +1,4 @@
-export default function CalculateWinnert({ nextSquare }) {
+export default function CalculateWinnert(squarest) {
   const Winlines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -9,19 +9,15 @@ export default function CalculateWinnert({ nextSquare }) {
     [0, 3, 6],
     [2, 5, 8],
   ];
-
-  return (
-    <>
-      {Winlines.map(([a, b, c]) => {
-        if (
-          nextSquare[a] &&
-          nextSquare[a] === nextSquare[b] &&
-          nextSquare[a] === nextSquare[c]
-        ) {
-          return nextSquare[a];
-        }
-        return null;
-      })}
-    </>
-  );
+  for (let i = 0; i < Winlines.length; i++) {
+    let [a, b, c] = Winlines[i];
+    if (
+      squarest[a] &&
+      squarest[a] === squarest[b] &&
+      squarest[a] === squarest[c]
+    ) {
+      return squarest[a];
+    }
+  }
+  return null;
 }
